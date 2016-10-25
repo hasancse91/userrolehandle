@@ -5,11 +5,11 @@ if($_SESSION['loginstatus']=="ok")
 {
 	
 
-	echo "Hello<br>";
-	$userId = $_SESSION['id'];
-	echo "user id is: ".$userId."<br>";
+	echo "Hello<br><br>";
+	$userId = $_SESSION['user_id'];
+	echo "user id is: ".$userId."<br><br>";
 
-	$result = mysql_query("SELECT emailid FROM `userinfo` where id=$userId");
+	$result = mysql_query("SELECT emailid FROM `userinfo` where user_id=$userId");
 
 	$count = mysql_num_rows($result);
 	
@@ -22,6 +22,8 @@ if($_SESSION['loginstatus']=="ok")
 	}
 	else
 		echo "ID not Found<br>";
+
+	echo "User Role: ".$_SESSION['user_role']."<br><br>";
 
 	echo "<a href='logout.php'>Logout</a>";	
 	
