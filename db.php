@@ -1,6 +1,6 @@
 <?php
 
-mysql_connect("localhost", "root", "h") or die("Cannot connect");
-mysql_select_db("cse14db") or die("Cannot select DB");
+mysql_connect("localhost", "root", "") or die("Cannot connect");
+mysql_select_db("hasanDB") or die("Cannot select DB");
 
 ?>

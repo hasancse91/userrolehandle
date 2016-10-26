@@ -13,6 +13,11 @@ Email:
 <input type='submit'>
 </form>
 
+		<?php
+			echo "<br><br>";
+			echo "<a href='registration_form.php'>Registration</a>";
+		?>
+
 </div>
 
 </body>

@@ -14,8 +14,8 @@
 			<input type='password' name='password'><br>
 			
 			User Type:
-			  <input type="radio" checked="checked" name="user_role" <?php if (isset($user_role) && $user_role=="student") echo "checked";?> value="student">Student
-			  <input type="radio" name="user_role" <?php if (isset($user_role) && $user_role=="teacher") echo "checked";?> value="teacher">Teacher
+			  <input type="radio" checked name="user_role" value="student">Student
+			  <input type="radio" name="user_role" value="teacher">Teacher
 			  <br><br>
 			<input type='submit'>
 		</form>

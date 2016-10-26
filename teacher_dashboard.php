@@ -8,6 +8,9 @@ session_start();
 		echo "<a href='profile.php'>Profile</a>";
 		echo "<br><br>";
 
+		echo "<a href='mark_entry_form.php'>Marks Entry</a>";
+		echo "<br><br>";
+
 		echo "<a href='see_marks.php'>See Marks</a>";
 		echo "<br><br>";
 		
