@@ -1,33 +1,44 @@
 <?php 
 session_start();
 include "db.php";
-if($_SESSION['loginstatus']=="ok")
-{
-	
 
-	echo "Hello<br><br>";
-	$userId = $_SESSION['user_id'];
-	echo "user id is: ".$userId."<br><br>";
+	if($_SESSION['loginstatus']=="ok")
+	{
+		
 
-	$result = mysql_query("SELECT emailid FROM `userinfo` where user_id=$userId");
+		echo "<h2>Your Profile</h2><br><br>";
+		$userId = $_SESSION['user_id'];
+		
+		$result = mysql_query("SELECT * FROM `userinfo` where user_id=$userId");
 
-	$count = mysql_num_rows($result);
-	
-	echo "Count = ".$count."<br>";
+		$count = mysql_num_rows($result);
+		
+		
 
-	if($count==1){
+		if($count==1){
 
-		$row = mysql_fetch_array($result);
-		echo "Email ID is: ".$row['emailid']."<br>";
+			$row = mysql_fetch_array($result);
+			echo "Name: ".$row['name']."<br>";
+			echo "Email: ".$row['emailid']."<br>";
+			echo "User Type: ".$row['user_role']."<br>";
+		}
+		else
+			echo "Information not found!<br>";
+
+		echo "<br><br>";
+
+		if($row['user_role']=="student")
+			echo "<a href='student_dashboard.php'>Go to Dashboard</a>";
+		else
+			echo "<a href='teacher_dashboard.php'>Go to Dashboard</a>";
+
+		echo "<br><br>";
+
+		echo "<a href='logout.php'>Logout</a>";	
+		
 	}
 	else
-		echo "ID not Found<br>";
-
-	echo "User Role: ".$_SESSION['user_role']."<br><br>";
-
-	echo "<a href='logout.php'>Logout</a>";	
-	
-}
+		echo "<script>window.location='login.php'</script>";
 
 
 ?>
