@@ -1,5 +1,27 @@
 <?php
-session_start();
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    width: 400px;
+}
+table, td, th {
+   border: 1px solid #000000;
+   padding: 10px;
+   text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<?php
 include "db.php";
 
 	if($_SESSION['loginstatus']=="ok"){
@@ -37,26 +59,31 @@ include "db.php";
 		}
 		else{
 
-			echo "<h2>Marks inputted by you</h2>";
+			echo "<h2>Marks of All students</h2>";
 
-			$result = mysql_query("SELECT user_id, name, emailid, total_marks from `userinfo` INNER JOIN `marks_table` on userinfo.user_id=marks_table.user_id");
+			$result = mysql_query("SELECT userinfo.user_id, userinfo.name, userinfo.emailid, marks_table.total_marks from `userinfo` INNER JOIN `marks_table` on userinfo.user_id=marks_table.user_id");
 
 			$count = mysql_num_rows($result);
 
 			if($count>0){
 
-				echo "Name | Email | Total Marks<br>";
+				
+				echo "<table><tr><th>Name</th><th>Email</th><th>Total Marks</th></tr>";
+
 
 				while($row = mysql_fetch_array($result)){
 
-					echo $row['name']." | ".$row['emailid']." | ".$row['total_marks']."<br>";
+					//echo $row['name']." | ".$row['emailid']." | ".$row['total_marks']."<br>";
+
+					echo "<tr><td>".$row['name']."</td><td>".$row['emailid']."</td><td>".$row['total_marks']."</td>";
 
 				}
+				echo "</table>";
 
 				 
 			}
 			else
-				echo "You don't input any marks!";
+				echo "No result for showing!";
 
 
 		}
@@ -76,3 +103,6 @@ include "db.php";
 
 
 ?>
+
+</body>
+</html>

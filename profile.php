@@ -18,6 +18,8 @@ include "db.php";
 		if($count==1){
 
 			$row = mysql_fetch_array($result);
+			
+			echo "ID: ".$userId;
 			echo "Name: ".$row['name']."<br>";
 			echo "Email: ".$row['emailid']."<br>";
 			echo "User Type: ".$row['user_role']."<br>";
