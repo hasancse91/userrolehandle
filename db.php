@@ -1,7 +1,7 @@
 <?php
 
 //For localhost
-mysql_connect("localhost", "root", "h") or die("Cannot connect");
+mysql_connect("localhost", "phpmyadmin", "h") or die("Cannot connect");
 mysql_select_db("cse14db") or die("Cannot select DB");
 
 /*
